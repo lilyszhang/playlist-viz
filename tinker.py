@@ -21,6 +21,9 @@ with open('features.json') as json_data:
         feature_ids['speechiness'] = feature_ids.get('speechiness',[])
         feature_ids['speechiness'].append(feature['speechiness']*100)
 
+        feature_ids['acousticness'] = feature_ids.get('acousticness',[])
+        feature_ids['acousticness'].append(feature['acousticness']*100)
+
         feature_ids['liveness'] = feature_ids.get('liveness',[])
         feature_ids['liveness'].append(feature['liveness']*100)
 
@@ -36,6 +39,8 @@ with open('features.json') as json_data:
         avgs[k] = sum/len(v)
 
     print (avgs)
+    with open('avgs.json', 'w') as fp:
+        json.dump(avgs, fp)
 
 
 
