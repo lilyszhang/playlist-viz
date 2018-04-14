@@ -7,6 +7,7 @@
     </head>
     <body>
         <canvas id="myChart"></canvas>
+        <canvas id="canvas2"></canvas>
     </body>
     <script>
         var ctx = document.getElementById('myChart').getContext('2d');
@@ -41,5 +42,41 @@
                 }
             }
         });
+
+        var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    		var color = Chart.helpers.color;
+    		var barChartData = {
+    			labels: ['bellyache', 'Bad Company', 'Feelings', 'moonlight', 'Sounds Fake but Ok', 'Coloring Outside The Lines', 'You Owe Me', 'This Town - Gucci Mane Edit', 'No Excuses', 'Whiskey', 'New Religion', 'City Lights', 'Strangers', 'Tokyo', 'Go', 'Common Fear', 'Pink Lemonade', 'Blackberries',
+ 'Nothing to Regret', 'Not A Love Song', 'Real Friends', 'So Much More Than This', 'ILLUSION', 'Normal', 'Clearly', 'Sleep Talking', 'Bad Song'],
+    			datasets: [{
+    				label: 'Dataset 1',
+    				backgroundColor: 	'rgb(255,160,122)',
+    				borderColor: 	'rgb(255,160,122)',
+    				borderWidth: 1,
+    				data: [99.983, 113.026, 110.956, 123.011, 124.914, 110.972, 89.996, 147.965, 115.016, 127.897, 97.012, 105.96, 115.034, 121.066, 154.124, 153.901, 152.078, 91.981, 91.998, 92.005, 91.958, 180.039, 113.934, 119.908, 98, 101.99, 140.028]
+    			}, {
+    			}]
+
+    		};
+
+    		window.onload = function() {
+    			var ctx2 = document.getElementById('canvas2').getContext('2d');
+    			window.myBar = new Chart(ctx2, {
+    				type: 'horizontalBar',
+    				data: barChartData,
+    				options: {
+    					responsive: true,
+    					legend: {
+    						position: 'top',
+    					},
+    					title: {
+    						display: true,
+    						text: 'Chart.js Bar Chart'
+    					}
+    				}
+    			});
+
+    		};
+
     </script>
 </html>

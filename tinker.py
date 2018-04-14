@@ -1,14 +1,17 @@
 import json
 
 song_ids = []
+song_names = []
 with open('songs.json') as json_data:
     d = json.load(json_data)
     for item in d['items']:
         song_ids.append(item['track']['id'])
+        song_names.append(item['track']['name'])
 
 #print(song_ids)
 
 feature_ids = {}
+tempo = []
 with open('features.json') as json_data:
     f = json.load(json_data)
     for feature in f['audio_features']:
@@ -30,6 +33,11 @@ with open('features.json') as json_data:
         feature_ids['valence'] = feature_ids.get('valence',[])
         feature_ids['valence'].append(feature['valence']*100)
 
+        tempo.append(feature['tempo'])
+    songs = {}
+    for song in song_names:
+        for t in tempo:
+            songs[song] = t
     avgs = {}
 
     for k,v in feature_ids.items():
@@ -38,7 +46,7 @@ with open('features.json') as json_data:
             sum += val
         avgs[k] = sum/len(v)
 
-    print (avgs)
+    print (songs.keys())
     with open('avgs.json', 'w') as fp:
         json.dump(avgs, fp)
 
