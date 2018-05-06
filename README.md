@@ -19,7 +19,7 @@
 
 ### Getting Song Features
 
-1. Create a new file titled `tinker.py`.
+1. Open the file titled `tinker_starter.py`.
 
 2. Get `song_ids` and `song_names` by parsing through `songs.json`.
 ```
@@ -60,6 +60,8 @@ for k,v in feature_ids.items():
         sum += val
     avgs[k] = sum/len(v)
 ```
+
+9. The final code for this section can be viewed at `tinker.py`.
 
 ### Visualizing the data
 
