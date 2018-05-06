@@ -1,4 +1,5 @@
-![Final Product](https://i.imgur.com/8pNgXlc.png)
+![Final Product Features](https://i.imgur.com/8pNgXlc.png)
+![Final Product Tempos](https://i.imgur.com/ez4Ijag.png)
 
 # Playlist Visualization Tutorial
 
@@ -53,3 +54,25 @@ for k,v in feature_ids.items():
         sum += val
     avgs[k] = sum/len(v)
 ```
+
+### Visualizing the data
+
+1. Create a new file `index.html` and set up the header with a page title and import ChartJS using this link as the source: `https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js`
+![Step 1](https://i.imgur.com/pTWFAYf.png)
+
+2. In the body tags, add in the following lines:
+```python
+<body>
+    <canvas id="songFeatures"></canvas>
+    <canvas id="songTempos"></canvas>
+</body>```
+
+3. Inside script tags, we will build our graphs. Start by creating an `averages` dictionary with the values you calculated in `tinker.py`. An example with our playlist is shown below:
+```python
+var averages = {"danceability": 67.21851851851851, "energy": 64.74814814814815, "speechiness": 7.4185185185185185, "acousticness": 19.46912592592593, "liveness": 20.227407407407412, "valence": 49.025925925925925}```
+
+4. In a polarAreaChart variable, follow the structure on the [ChartJS documentation](http://www.chartjs.org/docs/latest/#creating-a-chart). This will create your first graph, showing the average feature value of songs in your selected playlist for each of the labels in the chart.
+![Step 4](https://i.imgur.com/pGciqgm.png)
+
+5. To create our tempo graph, create a variable titled barChart and set the labels to be an **array of song titles** in your playlist. Set the dataset to be the **array of tempos of the songs**.
+![Step 5](https://i.imgur.com/dafFyRv.png)

@@ -1,81 +1,76 @@
 <html>
     <head>
         <title>Playlist Data</title>
-        <!-- <script src="main.js"></script> -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
     </head>
     <body>
-        <canvas id="myChart"></canvas>
-        <canvas id="canvas2"></canvas>
+        <canvas id="songFeatures"></canvas>
+        <canvas id="songTempos"></canvas>
     </body>
     <script>
-        var ctx = document.getElementById('myChart').getContext('2d');
+        // FIRST GRAPH (FEATURES)
+
+        //select canvas element from body
+        var ctx = document.getElementById('songFeatures').getContext('2d');
         ctx.canvas.width  = window.innerWidth;
         ctx.canvas.height = window.innerHeight;
-        // $.getJSON('avgs.json', function(data) {
-            // console.log(data)
-        // });
-        var chart = new Chart(ctx, {
-            // The type of chart we want to create
+        //Input averages obtained from python script here as a variable averages
+        var averages = {"danceability": 67.21851851851851, "energy": 64.74814814814815, "speechiness": 7.4185185185185185, "acousticness": 19.46912592592593, "liveness": 20.227407407407412, "valence": 49.025925925925925}
+        var polarAreaChart = new Chart(ctx, {
             type: 'polarArea',
-
-            // The data for our dataset
             data: {
                 labels: ["Danceability", "Energy", "Speechiness", "Acousticness", "Liveness", "Valence"],
                 datasets: [{
                     label: "Averages of Song Features",
                     backgroundColor: ['rgb(255,118,117,0.5)', 'rgb(253,203,110,0.5)', 'rgb(255,234,167,0.5)', 'rgb(85,239,196,0.5)', 'rgb(116,185,255,0.5)', 'rgb(162,155,254,0.5)'],
                     borderColor: ['#ff7675', '#fdcb6e', '#ffeaa7', '#55efc4', '#74b9ff', '#a29bfe'],
-                    // data: [averages['danceability'], averages['energy'], averages['speechiness'], averages['acousticness'], averages['liveness'], averages['valence']],
-                    data: [50,40,30,60,70,20]
+                    data: [averages['danceability'], averages['energy'], averages['speechiness'], averages['acousticness'], averages['liveness'], averages['valence']],
                 }]
             },
-
-            // Configuration options go here
             options: {
                 scale: {
                     ticks: {
                         min: 0,
                         max: 100
                     }
+                },
+                title: {
+                    display: true,
+                    text: 'Song Features'
                 }
             }
         });
 
-        var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-    		var color = Chart.helpers.color;
-    		var barChartData = {
-    			labels: ['bellyache', 'Bad Company', 'Feelings', 'moonlight', 'Sounds Fake but Ok', 'Coloring Outside The Lines', 'You Owe Me', 'This Town - Gucci Mane Edit', 'No Excuses', 'Whiskey', 'New Religion', 'City Lights', 'Strangers', 'Tokyo', 'Go', 'Common Fear', 'Pink Lemonade', 'Blackberries',
- 'Nothing to Regret', 'Not A Love Song', 'Real Friends', 'So Much More Than This', 'ILLUSION', 'Normal', 'Clearly', 'Sleep Talking', 'Bad Song'],
+        // SECOND GRAPH (TEMPOS)
+
+        var ctx2 = document.getElementById('songTempos').getContext('2d');
+        ctx2.canvas.width  = window.innerWidth;
+        ctx2.canvas.height = window.innerHeight;
+
+		var barChartData = new Chart(ctx2, {
+            type: 'horizontalBar',
+            data: {
+                labels: ['bellyache', 'Bad Company', 'Feelings', 'moonlight', 'Sounds Fake but Ok', 'Coloring Outside The Lines', 'You Owe Me', 'This Town - Gucci Mane Edit', 'No Excuses', 'Whiskey', 'New Religion', 'City Lights', 'Strangers', 'Tokyo', 'Go', 'Common Fear', 'Pink Lemonade', 'Blackberries',
+    'Nothing to Regret', 'Not A Love Song', 'Real Friends', 'So Much More Than This', 'ILLUSION', 'Normal', 'Clearly', 'Sleep Talking', 'Bad Song'],
     			datasets: [{
     				label: 'Tempo',
-    				backgroundColor: 	'rgb(255,160,122)',
-    				borderColor: 	'rgb(255,160,122)',
+    				backgroundColor: 'rgb(255,160,122)',
+    				borderColor: 'rgb(255,160,122)',
     				borderWidth: 1,
     				data: [99.983, 113.026, 110.956, 123.011, 124.914, 110.972, 89.996, 147.965, 115.016, 127.897, 97.012, 105.96, 115.034, 121.066, 154.124, 153.901, 152.078, 91.981, 91.998, 92.005, 91.958, 180.039, 113.934, 119.908, 98, 101.99, 140.028]
     			}]
-
-    		};
-
-    		window.onload = function() {
-    			var ctx2 = document.getElementById('canvas2').getContext('2d');
-    			window.myBar = new Chart(ctx2, {
-    				type: 'horizontalBar',
-    				data: barChartData,
-    				options: {
-    					responsive: true,
-    					legend: {
-    						position: 'top',
-    					},
-    					title: {
-    						display: true,
-    						text: 'Chart.js Bar Chart'
-    					}
-    				}
-    			});
-
-    		};
+            },
+            options: {
+                responsive: true,
+                legend: {
+                    position: 'top',
+                },
+                title: {
+                    display: true,
+                    text: 'Song Tempos'
+                }
+            }
+        });
 
     </script>
 </html>
