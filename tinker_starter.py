@@ -5,6 +5,8 @@ import json
 with open('songs.json') as json_data:
     d = json.load(json_data)
 
+print('Song IDs: ' + str(song_ids) + '\n')
+
 feature_ids = {}
 tempo = []
 with open('features.json') as json_data:
@@ -20,6 +22,8 @@ songs = {}
 # Store the songs associated with their tempos in a dictionary
 avgs = {}
 # Calculate the averages for each feature
+print('Song Titles: ' + str(songs.keys()) + '\n')
+print('Feature Averages: ' + str(avgs) + '\n')
 
 with open('avgs.json', 'w') as fp:
     json.dump(avgs, fp)
