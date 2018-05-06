@@ -1,7 +1,7 @@
+# Playlist Visualization Tutorial
+
 ![Final Product Features](https://i.imgur.com/8pNgXlc.png)
 ![Final Product Tempos](https://i.imgur.com/ez4Ijag.png)
-
-# Playlist Visualization Tutorial
 
 ### Getting Playlist Data
 
@@ -86,3 +86,5 @@ var averages = {"danceability": 67.21851851851851, "energy": 64.74814814814815, 
 
 5. To create our tempo graph, create a variable titled barChart and set the labels to be an **array of song titles** in your playlist. Set the dataset to be the **array of tempos of the songs**.
 ![Step 5](https://i.imgur.com/dafFyRv.png)
+
+6. To see your graphs on a webpage, just open `index.html` in a browser!

@@ -8,7 +8,7 @@ with open('songs.json') as json_data:
         song_ids.append(item['track']['id'])
         song_names.append(item['track']['name'])
 
-print('Song IDs: ' + str(song_ids))
+print('Song IDs: ' + str(song_ids) + '\n')
 
 feature_ids = {}
 tempo = []
