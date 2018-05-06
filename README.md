@@ -20,6 +20,13 @@
 ### Getting Song Features
 
 1. Get `song_ids` and `song_names` by parsing through `songs.json`.
+```
+with open('songs.json') as json_data:
+    d = json.load(json_data)
+    for item in d['items']:
+        song_ids.append(item['track']['id'])
+        song_names.append(item['track']['name'])
+```
 
 2. Edit the `song_ids` to have no quotes and spaces.
 
