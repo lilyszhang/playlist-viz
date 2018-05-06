@@ -1,3 +1,5 @@
+![Final Product](https://i.imgur.com/8pNgXlc.png)
+
 # Playlist Visualization Tutorial
 
 ### Getting Playlist Data
