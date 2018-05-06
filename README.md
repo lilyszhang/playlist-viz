@@ -17,6 +17,10 @@
 
 6. Copy paste the output and put it into a new file titled `songs.json`
 
+7. In the [Spotify Web Console](https://beta.developer.spotify.com/console/get-audio-features-several-tracks/), navigate to Tracks > Get Audio Features for Several Tracks and enter the song ids.
+
+8. Copy paste the output and save it to a file titled `features.json`.
+
 ### Getting Song Features
 
 1. Open the file titled `tinker_starter.py`.
@@ -30,20 +34,14 @@ for item in d['items']:
 
 3. Edit the `song_ids` to have no quotes and spaces.
 
-4. In the [Spotify Web Console](https://beta.developer.spotify.com/console/get-audio-features-several-tracks/), navigate to Tracks > Get Audio Features for Several Tracks and enter the song ids.
-
-5. Copy paste the output and save it to a file titled `features.json`.
-
-
-6. Parse the values for each song feature from `features.json` as follows:
+4. Parse the values for each song feature from `features.json` as follows:
 ```
 for feature in f['audio_features']:
     feature_ids['danceability'] = feature_ids.get('danceability',[])
     feature_ids['danceability'].append(feature['danceability']*100)
 ```
 All features, except tempo, will be scaled by 100. We will store the values for tempo separately.
-
-7. Store all of the songs and their corresponding tempos in a dictionary.
+5. Store all of the songs and their corresponding tempos in a dictionary.
 ```
 songs = {}
 for song in song_names:
@@ -51,7 +49,7 @@ for song in song_names:
         songs[song] = t
 ```
 
-8. Calculate the averages of each feature.
+6. Calculate the averages of each feature.
 ```
 avgs = {}
 for k,v in feature_ids.items():
@@ -61,7 +59,7 @@ for k,v in feature_ids.items():
     avgs[k] = sum/len(v)
 ```
 
-9. The final code for this section can be viewed at `tinker.py`.
+7. The final code for this section can be viewed at `tinker.py`.
 
 ### Visualizing the data
 
