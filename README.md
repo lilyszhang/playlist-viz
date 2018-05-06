@@ -19,22 +19,21 @@
 
 ### Getting Song Features
 
-1. Get `song_ids` and `song_names` by parsing through `songs.json`.
+1. Create a new file titled `tinker.py`.
+
+2. Get `song_ids` and `song_names` by parsing through `songs.json`.
 ```
-with open('songs.json') as json_data:
-    d = json.load(json_data)
-    for item in d['items']:
-        song_ids.append(item['track']['id'])
-        song_names.append(item['track']['name'])
+for item in d['items']:
+    song_ids.append(item['track']['id'])
+    song_names.append(item['track']['name'])
 ```
 
-2. Edit the `song_ids` to have no quotes and spaces.
+3. Edit the `song_ids` to have no quotes and spaces.
 
-3. In the [Spotify Web Console](https://beta.developer.spotify.com/console/get-audio-features-several-tracks/), navigate to Tracks > Get Audio Features for Several Tracks and enter the song ids.
+4. In the [Spotify Web Console](https://beta.developer.spotify.com/console/get-audio-features-several-tracks/), navigate to Tracks > Get Audio Features for Several Tracks and enter the song ids.
 
-4. Copy paste the output and save it to a file titled `features.json`.
+5. Copy paste the output and save it to a file titled `features.json`.
 
-5. Create a new file titled `tinker.py`.
 
 6. Parse the values for each song feature from `features.json` as follows:
 ```
@@ -65,6 +64,8 @@ for k,v in feature_ids.items():
 ### Visualizing the data
 
 1. Create a new file `index.html` and set up the header with a page title and import ChartJS using this link as the source: `https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js`
+
+
 ![Step 1](https://i.imgur.com/pTWFAYf.png)
 
 2. In the body tags, add in the following lines:
@@ -72,11 +73,13 @@ for k,v in feature_ids.items():
 <body>
     <canvas id="songFeatures"></canvas>
     <canvas id="songTempos"></canvas>
-</body>```
+</body>
+```
 
 3. Inside script tags, we will build our graphs. Start by creating an `averages` dictionary with the values you calculated in `tinker.py`. An example with our playlist is shown below:
 ```python
-var averages = {"danceability": 67.21851851851851, "energy": 64.74814814814815, "speechiness": 7.4185185185185185, "acousticness": 19.46912592592593, "liveness": 20.227407407407412, "valence": 49.025925925925925}```
+var averages = {"danceability": 67.21851851851851, "energy": 64.74814814814815, "speechiness": 7.4185185185185185, "acousticness": 19.46912592592593, "liveness": 20.227407407407412, "valence": 49.025925925925925}
+```
 
 4. In a polarAreaChart variable, follow the structure on the [ChartJS documentation](http://www.chartjs.org/docs/latest/#creating-a-chart). This will create your first graph, showing the average feature value of songs in your selected playlist for each of the labels in the chart.
 ![Step 4](https://i.imgur.com/pGciqgm.png)
