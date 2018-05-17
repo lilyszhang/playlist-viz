@@ -11,7 +11,7 @@
 
 3. In your Spotify app, pick a playlist and click (...) > Share > Copy Spotify URI. Paste the URI anywhere and grab the playlist ID (`spotify:user:username:playlist:playlist_id`)
 
-4. In the web console, fill in your `user_id` and `playlist_id` and put `items(track(album(name,href),id))` in `fields`.
+4. In the web console, fill in your `user_id` and `playlist_id` and put `items(track(name,id))` in `fields`.
 
 5. Under `OAuth Token` click `GET TOKEN` and choose the default settings.
 
