@@ -32,7 +32,7 @@ for item in d['items']:
     song_names.append(item['track']['name'])
 ```
 
-3. Edit the `song_ids` to have no quotes and spaces.
+3. Edit the `song_ids` to have no quotes and spaces. You can add a line `print(*song_ids, sep=',')` after you print the IDs if you are using Python 3.
 
 4. Parse the values for each song feature from `features.json` as follows:
 ```
@@ -77,8 +77,10 @@ for k,v in feature_ids.items():
 ```
 
 3. Inside script tags, we will build our graphs. Start by creating an `averages` dictionary with the values you calculated in `tinker.py`. An example with our playlist is shown below:
-```python
+```javascript
+<script>
 var averages = {"danceability": 67.21851851851851, "energy": 64.74814814814815, "speechiness": 7.4185185185185185, "acousticness": 19.46912592592593, "liveness": 20.227407407407412, "valence": 49.025925925925925}
+</script>
 ```
 
 4. In a polarAreaChart variable, follow the structure on the [ChartJS documentation](http://www.chartjs.org/docs/latest/#creating-a-chart). This will create your first graph, showing the average feature value of songs in your selected playlist for each of the labels in the chart.
