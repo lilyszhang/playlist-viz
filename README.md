@@ -5,7 +5,7 @@
 
 ### Getting Playlist Data
 
-1. Create a Spotify account if you don't already have one and go to [Spotify's API Docs](beta.developer.spotify.com).
+1. Create a Spotify account if you don't already have one and go to [Spotify's API Docs](https://beta.developer.spotify.com).
 
 2. Open up Spotify Web Console and navigate to Playlists > Get a Playlist's Tracks
 
@@ -88,3 +88,7 @@ var averages = {"danceability": 67.21851851851851, "energy": 64.74814814814815, 
 ![Step 5](https://i.imgur.com/dafFyRv.png)
 
 6. To see your graphs on a webpage, just open `index.html` in a browser!
+
+### Your turn to make something
+
+Using what you've learned, Spotify's Web Console, and the ChartJS documentation, try making your own vizualizations now based on data that you're interested in!
