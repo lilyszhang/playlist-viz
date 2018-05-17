@@ -79,7 +79,7 @@ for k,v in feature_ids.items():
 3. Inside script tags, we will build our graphs. Start by creating an `averages` dictionary with the values you calculated in `tinker.py`. An example with our playlist is shown below:
 ```javascript
 <script>
-var averages = {"danceability": 67.21851851851851, "energy": 64.74814814814815, "speechiness": 7.4185185185185185, "acousticness": 19.46912592592593, "liveness": 20.227407407407412, "valence": 49.025925925925925}
+    var averages = {"danceability": 67.21851851851851, "energy": 64.74814814814815, "speechiness": 7.4185185185185185, "acousticness": 19.46912592592593, "liveness": 20.227407407407412, "valence": 49.025925925925925}
 </script>
 ```
 
