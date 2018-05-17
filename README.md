@@ -87,7 +87,7 @@ for k,v in feature_ids.items():
 4. In a polarAreaChart variable, follow the structure on the [ChartJS documentation](http://www.chartjs.org/docs/latest/#creating-a-chart). This will create your first graph, showing the average feature value of songs in your selected playlist for each of the labels in the chart.
 ![Step 4](https://i.imgur.com/pGciqgm.png)
 
-5. To create our tempo graph, create a variable titled barChart and set the labels to be an **array of song titles** in your playlist. Set the dataset to be the **array of tempos of the songs**.
+5. To create our tempo graph, create a variable titled barChart and set the labels to be an **array of song titles** in your playlist. Set the dataset to be the **array of tempos of the songs**, which you can get from the `tinker.py` file if you print out the `tempo` array.
 ![Step 5](https://i.imgur.com/dafFyRv.png)
 
 6. To see your graphs on a webpage, just open `index.html` in a browser!
